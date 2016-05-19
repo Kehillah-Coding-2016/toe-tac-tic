@@ -6,8 +6,8 @@ class Board:
 
 
     def check_win(self):
+        #if self.player
         pass
-
 
 
 
