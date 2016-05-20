@@ -1,6 +1,6 @@
 from models import Board
 from models import Player
-from models import Mark
+#from models import Mark
 
 
 gameBoard = Board()
@@ -17,62 +17,115 @@ while True:
  4 | 5 | 6
 -----------
  7 | 8 | 9
-        ''')
+    ''')
 
-    spot1x = ' '
-    spot2x = ' '
-    spot3x = ' '
-    spot4x = ' '
-    spot5x = ' '
-    spot6x = ' '
-    spot7x = ' '
-    spot8x = ' '
-    spot9x = ' '
-    spot1o = ' '
-    spot2o = ' '
-    spot3o = ' '
-    spot4o = ' '
-    spot5o = ' '
-    spot6o = ' '
-    spot7o = ' '
-    spot8o = ' '
-    spot9o = ' '
+    playererror = False
+    spoterror = False
+
+    spot1 = ' '
+    spot2 = ' '
+    spot3 = ' '
+    spot4 = ' '
+    spot5 = ' '
+    spot6 = ' '
+    spot7 = ' '
+    spot8 = ' '
+    spot9 = ' '
 
     player = input('player: ')
-    spot = input('selection: ')
+    spot = input('spot: ')
+    if player == 'x':
         if spot == '1':
-            spot1 = '1'
+            spot1 = 'X'
         elif spot == '2':
-            spot2 = '2'
+            spot2 = 'X'
         elif spot == '3':
-            spot3 = '3'
+            spot3 = 'X'
         elif spot == '4':
-            spot4 = '4'
+            spot4 = 'X'
         elif spot == '5':
-            spot5 = '5'
+            spot5 = 'X'
         elif spot == '6':
-            spot6 = '6'
-        elif spot != '1' or '2' or '3' or '4' or '5' or '6':
-            print('error')
+            spot6 = 'X'
+        elif spot == '7':
+            spot7 = 'X'
+        elif spot == '8':
+            spot8 = 'X'
+        elif spot == '9':
+            spot9 = 'X'
+        else:
+            spoterror = True
+    elif player == 'o':
+        if spot == '1':
+            spot1 = 'O'
+        elif spot == '2':
+            spot2 = 'O'
+        elif spot == '3':
+            spot3 = 'O'
+        elif spot == '4':
+            spot4 = 'O'
+        elif spot == '5':
+            spot5 = 'O'
+        elif spot == '6':
+            spot6 = 'O'
+        elif spot == '7':
+            spot7 = 'O'
+        elif spot == '8':
+            spot8 = 'O'
+        elif spot == '9':
+            spot9 = 'O'
+        else:
+            spoterror = True
+    elif player != 'o' or 'x':
+        playererror = True
+
+    if playererror == True and spoterror == True:
+        print('error: player, spot')
+        quit()
+    elif playererror == True and spoterror == False:
+        print('error: player')
+        quit()
+    elif playererror == False and spoterror == True:
+        print('error: spot')
+        quit()
+    elif playererror == False and spoterror == False:
+        pass
+
 
     print('''
  ''' + spot1 + ''' | ''' + spot2 + ''' | ''' + spot3 + '''
 -----------
  ''' + spot4 + ''' | ''' + spot5 + ''' | ''' + spot6 + '''
 -----------
-   |   |
+ ''' + spot7 + ''' | ''' + spot8 + ''' | ''' + spot9 + '''
         ''')
 
-    # if selection == '1':
-    # if selection == '2':
-    # if selection == '3':
-    # if selection == '4':
-    # if selection == '5':
-    # if selection == '6':
-    # if selection == '7':
-    # if selection == '8':
-    # if selection == '9':
-    #
+
+    if spot1 == 'X' and spot2 == 'X' and spot3 == 'X':
+        print('x wins')
+        quit()
+    elif spot4 == 'X' and spot5 == 'X' and spot6 == 'X':
+        print('x wins')
+        quit()
+    elif spot7 == 'X' and spot8 == 'X' and spot9 == 'X':
+        print('x wins')
+        quit()
+    elif spot1 == 'X' and spot4 == 'X' and spot7 == 'X':
+        print('x wins')
+        quit()
+    elif spot2 == 'X' and spot5 == 'X' and spot8 == 'X':
+        print('x wins')
+        quit()
+    elif spot3 == 'X' and spot6 == 'X' and spot9 == 'X':
+        print('x wins')
+        quit()
+    elif spot1 == 'X' and spot5 == 'X' and spot9 == 'X':
+        print('x wins')
+        quit()
+    elif spot3 == 'X' and spot5 == 'X' and spot7 == 'X':
+        print('x wins')
+        quit()
+
     # player1.make_move()
     # gameBoard.check_win()
     # player2.make_move()
