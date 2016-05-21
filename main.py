@@ -49,14 +49,39 @@ while True:
         spot = input('spot: ')
 
         #checking for duplicate spot selections
-        if spot1 == 'X' or spot1 == 'O':
-            spoterror = True
-            pass
-        elif spot2 == 'X' or spot2 == 'O':
-            spoterror = True
-        else:
+        if spot == '1' and spot1 == ' ':
             spoterror = False
-            pass
+        spoterror = True
+        if spot == '2' and spot2 == ' ':
+            spoterror = False
+        spoterror = True
+        if spot == '3' and spot3 == ' ':
+            spoterror = False
+        spoterror = True
+        if spot == '4' and spot4 == ' ':
+            spoterror = False
+        spoterror = True
+        if spot == '5' and spot5 == ' ':
+            spoterror = False
+        spoterror = True
+        if spot == '6' and spot6 == ' ':
+            spoterror = False
+        spoterror = True
+        if spot == '7' and spot7 == ' ':
+            spoterror = False
+        spoterror = True
+        if spot == '8' and spot8 == ' ':
+            spoterror = False
+        spoterror = True
+        if spot == '9' and spot9 == ' ':
+            spoterror = False
+        spoterror = True
+    else: 
+        spoterror = False
+        pass
+
+        
+        
 
         #turns the spot selection into a mark for the player
         if player == 'x':
