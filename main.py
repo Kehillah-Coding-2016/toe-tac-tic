@@ -2,6 +2,9 @@ from models import Board
 from models import Player
 #from models import Mark
 
+'''
+a note: the formatting bit that prints enough blank lines for the screen is from stackoverflow
+'''
 
 gameBoard = Board()
 player1 = Player('x', gameBoard)
