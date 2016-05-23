@@ -7,18 +7,9 @@ gameBoard = Board()
 player1 = Player('x', gameBoard)
 player2 = Player('o', gameBoard)
 
+runprogram = 0
 
-
-while True:
-
-    #possible spots
-    print('''
- 1 | 2 | 3
------------
- 4 | 5 | 6
------------
- 7 | 8 | 9
-    ''')
+while runprogram < 1:
 
     #setup for errors in user input
     playererror = False
@@ -35,7 +26,34 @@ while True:
     spot8 = ' '
     spot9 = ' '
 
+    #print boards
+    print(chr(27) + "[2J")
+    print('''
+|-------------------------------------|
+| NOTE:                               |
+| All spots are single-digit numbers, |
+| ex. 1, NOT 11 or 1111               |
+|        <Spots         Board>        |
+|-------------|         |-------------|
+ 11 | 22 | 33 |         | ''' + spot1 + spot1 + ''' | ''' + spot2 + spot2 + ''' | ''' + spot3 + spot3 + '''
+ 11 | 22 | 33 |         | ''' + spot1 + spot1 + ''' | ''' + spot2 + spot2 + ''' | ''' + spot3 + spot3 + '''
+--------------|         |--------------
+ 44 | 55 | 66 |         | ''' + spot4 + spot4 + ''' | ''' + spot5 + spot5 + ''' | ''' + spot6 + spot6 + '''
+ 44 | 55 | 66 |         | ''' + spot4 + spot4 + ''' | ''' + spot5 + spot5 + ''' | ''' + spot6 + spot6 + '''
+--------------|         |--------------
+ 77 | 88 | 99 |         | ''' + spot7 + spot7 + ''' | ''' + spot8 + spot8 + ''' | ''' + spot9 + spot9 + '''
+ 77 | 88 | 99 |---------| ''' + spot7 + spot7 + ''' | ''' + spot8 + spot8 + ''' | ''' + spot9 + spot9 + '''
+               \       /
+                \     /
+                 \---/
+    ''')
+
+    #possible spots
     for x in range(9):
+        #setup for errors in user input
+        playererror = False
+        spoterror = False
+
         #take the player input
         player = input('player: ')
         if player == 'x cheat':
@@ -44,90 +62,158 @@ while True:
         elif player == 'o cheat':
             print('o wins by cheating')
             quit()
-        else:
+        elif player != 'x' and player != 'o':
+            playererror = True
+        pass
+
+        #check for errors in user inputs
+        if playererror == True and spoterror == True:
+            print('error: player, spot')
+            quit()
+        elif playererror == True and spoterror == False:
+            print('error: player')
+            quit()
+        elif playererror == False and spoterror == True:
+            print('error: spot')
+            quit()
+        elif playererror == False and spoterror == False:
             pass
+
         spot = input('spot: ')
 
-        #checking for duplicate spot selections
-        if spot == '1' and spot1 == ' ':
-            spoterror = False
-        spoterror = True
-        if spot == '2' and spot2 == ' ':
-            spoterror = False
-        spoterror = True
-        if spot == '3' and spot3 == ' ':
-            spoterror = False
-        spoterror = True
-        if spot == '4' and spot4 == ' ':
-            spoterror = False
-        spoterror = True
-        if spot == '5' and spot5 == ' ':
-            spoterror = False
-        spoterror = True
-        if spot == '6' and spot6 == ' ':
-            spoterror = False
-        spoterror = True
-        if spot == '7' and spot7 == ' ':
-            spoterror = False
-        spoterror = True
-        if spot == '8' and spot8 == ' ':
-            spoterror = False
-        spoterror = True
-        if spot == '9' and spot9 == ' ':
-            spoterror = False
-        spoterror = True
-    # else: 
-    #     spoterror = False
-    #     pass
+        #check for errors in user inputs
+        if playererror == True and spoterror == True:
+            print('error: player, spot')
+            quit()
+        elif playererror == True and spoterror == False:
+            print('error: player')
+            quit()
+        elif playererror == False and spoterror == True:
+            print('error: spot')
+            quit()
+        elif playererror == False and spoterror == False:
+            pass
 
-        
-    print('fjklfj')   
+        #testing:
+        #print('fjklfj')
 
         #turns the spot selection into a mark for the player
         if player == 'x':
             if spot == '1':
-                spot1 = 'X'
+                if spot1 != ' ':
+                    spoterror == True
+                else:
+                    spot1 = 'X'
             elif spot == '2':
-                spot2 = 'X'
+                if spot2 != ' ':
+                    spoterror == True
+                else:
+                    spot2 = 'X'
             elif spot == '3':
-                spot3 = 'X'
+                if spot3 != ' ':
+                    spoterror == True
+                else:
+                    spot3 = 'X'
             elif spot == '4':
-                spot4 = 'X'
+                if spot4 != ' ':
+                    spoterror == True
+                else:
+                    spot4 = 'X'
             elif spot == '5':
-                spot5 = 'X'
+                if spot5 != ' ':
+                    spoterror == True
+                else:
+                    spot5 = 'X'
             elif spot == '6':
-                spot6 = 'X'
+                if spot6 != ' ':
+                    spoterror == True
+                else:
+                    spot6 = 'X'
             elif spot == '7':
-                spot7 = 'X'
+                if spot7 != ' ':
+                    spoterror == True
+                else:
+                    spot7 = 'X'
             elif spot == '8':
-                spot8 = 'X'
+                if spot8 != ' ':
+                    spoterror == True
+                else:
+                    spot8 = 'X'
             elif spot == '9':
-                spot9 = 'X'
+                if spot9 != ' ':
+                    spoterror == True
+                else:
+                    spot9 = 'X'
             else:
                 spoterror = True
         elif player == 'o':
             if spot == '1':
-                spot1 = 'O'
+                if spot1 != ' ':
+                    spoterror == True
+                else:
+                    spot1 = 'O'
             elif spot == '2':
-                spot2 = 'O'
+                if spot2 != ' ':
+                    spoterror == True
+                else:
+                    spot2 = 'O'
             elif spot == '3':
-                spot3 = 'O'
+                if spot3 != ' ':
+                    spoterror == True
+                else:
+                    spot3 = 'O'
             elif spot == '4':
-                spot4 = 'O'
+                if spot4 != ' ':
+                    spoterror == True
+                else:
+                    spot4 = 'O'
             elif spot == '5':
-                spot5 = 'O'
+                if spot5 != ' ':
+                    spoterror == True
+                else:
+                    spot5 = 'O'
             elif spot == '6':
-                spot6 = 'O'
+                if spot6 != ' ':
+                    spoterror == True
+                else:
+                    spot6 = 'O'
             elif spot == '7':
-                spot7 = 'O'
+                if spot7 != ' ':
+                    spoterror == True
+                else:
+                    spot7 = 'O'
             elif spot == '8':
-                spot8 = 'O'
+                if spot8 != ' ':
+                    spoterror == True
+                else:
+                    spot8 = 'O'
             elif spot == '9':
-                spot9 = 'O'
+                if spot9 != ' ':
+                    spoterror == True
+                else:
+                    spot9 = 'O'
             else:
                 spoterror = True
-        elif player != 'o' or 'x':
+        else:
+            pass
+
+        #check for errors in user inputs
+        if playererror == True and spoterror == True:
+            print('error: player, spot')
+            quit()
+        elif playererror == True and spoterror == False:
+            print('error: player')
+            quit()
+        elif playererror == False and spoterror == True:
+            print('error: spot')
+            quit()
+        elif playererror == False and spoterror == False:
+            pass
+
+        if player != 'o' and player != 'x':
             playererror = True
+        else:
+            pass
 
         #check for errors in user inputs
         if playererror == True and spoterror == True:
@@ -143,13 +229,26 @@ while True:
             pass
 
         #print the current game board with x's and o's
+        print(chr(27) + "[2J")
         print('''
- ''' + spot1 + ''' | ''' + spot2 + ''' | ''' + spot3 + '''
------------
- ''' + spot4 + ''' | ''' + spot5 + ''' | ''' + spot6 + '''
------------
- ''' + spot7 + ''' | ''' + spot8 + ''' | ''' + spot9 + '''
-            ''')
+|-------------------------------------|
+| NOTE:                               |
+| All spots are single-digit numbers, |
+| ex. 1, NOT 11 or 1111               |
+|        <Spots         Board>        |
+|-------------|         |-------------|
+ 11 | 22 | 33 |         | ''' + spot1 + spot1 + ''' | ''' + spot2 + spot2 + ''' | ''' + spot3 + spot3 + '''
+ 11 | 22 | 33 |         | ''' + spot1 + spot1 + ''' | ''' + spot2 + spot2 + ''' | ''' + spot3 + spot3 + '''
+--------------|         |--------------
+ 44 | 55 | 66 |         | ''' + spot4 + spot4 + ''' | ''' + spot5 + spot5 + ''' | ''' + spot6 + spot6 + '''
+ 44 | 55 | 66 |         | ''' + spot4 + spot4 + ''' | ''' + spot5 + spot5 + ''' | ''' + spot6 + spot6 + '''
+--------------|         |--------------
+ 77 | 88 | 99 |         | ''' + spot7 + spot7 + ''' | ''' + spot8 + spot8 + ''' | ''' + spot9 + spot9 + '''
+ 77 | 88 | 99 |---------| ''' + spot7 + spot7 + ''' | ''' + spot8 + spot8 + ''' | ''' + spot9 + spot9 + '''
+               \       /
+                \     /
+                 \---/
+        ''')
 
         #check wins for player x
         if spot1 == 'X' and spot2 == 'X' and spot3 == 'X':
