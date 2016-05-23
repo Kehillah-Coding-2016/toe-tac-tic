@@ -76,12 +76,12 @@ while True:
         if spot == '9' and spot9 == ' ':
             spoterror = False
         spoterror = True
-    else: 
-        spoterror = False
-        pass
+    # else: 
+    #     spoterror = False
+    #     pass
 
         
-        
+    print('fjklfj')   
 
         #turns the spot selection into a mark for the player
         if player == 'x':
