@@ -52,7 +52,7 @@ while runprogram < 1:
     ''')
 
     #possible spots
-    for x in range(9):
+    for x in range(9999999999999999999999):
         #setup for errors in user input
         playererror = False
         spoterror = False
